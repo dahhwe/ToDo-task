@@ -1,0 +1,163 @@
+:root {
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --container-background: #fff;
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --input-border: #ccc;
+    --button-background: #28a745;
+    --button-hover-background: #218838;
+    --todo-background: #f9f9f9;
+    --todo-border: #ccc;
+    --completed-text: #999;
+    --completed-background: #e0e0e0;
+    --primary-color: #007bff;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --popup-background: rgba(0, 0, 0, 0.4);
+    --popup-content-background: #fff;
+    --popup-border: #888;
+    --close-color: #aaa;
+    --close-hover-color: black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--text-color);
+}
+
+.container {
+    background: var(--container-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--container-shadow);
+    width: 400px;
+}
+
+.tasks-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+input[type="text"], input[type="date"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--button-background);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--button-hover-background);
+}
+
+.todo {
+    background: var(--todo-background);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--todo-border);
+}
+
+.todo.completed {
+    text-decoration: line-through;
+    color: var(--completed-text);
+    background: var(--completed-background);
+}
+
+.todo .task-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo .task-info .title {
+    font-weight: bold;
+}
+
+.todo .task-info .date {
+    border: 1px solid var(--todo-border);
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.todo button {
+    background-color: transparent;
+    border: 1px solid var(--input-border);
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.todo button.edit {
+    color: var(--primary-color);
+}
+
+.todo button.delete {
+    color: var(--danger-color);
+}
+
+.todo input.complete {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--popup-background);
+}
+
+.popup-content {
+    background-color: var(--popup-content-background);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--popup-border);
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.close {
+    color: var(--close-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--close-hover-color);
+    text-decoration: none;
+    cursor: pointer;
+}
